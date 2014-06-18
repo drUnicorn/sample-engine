@@ -19,6 +19,14 @@
     left: 0;
     top: 0;
    }
+   #sloupek{
+    width: 30px;
+    height: 30px;
+    background: blue;
+    position: absolute;
+    left: 385px;
+    top: 285px;  
+   }
   </style>
  </head>
  <body>
@@ -26,6 +34,7 @@
   <p><img src="../../Desktop/apple%20animated.gif" alt="apple animated.gif, 4.6kB" title="Apple animated" border="0" height="210" width="246"></p>
   <div id=canvas>
    <div id=kosticka></div>
+   <div id=sloupek></div>
   </div>
   <script>
    var element = document.getElementById('kosticka');
@@ -52,6 +61,18 @@
     if(shora>550){
      yrychlost = -3;
     }
+    if(zleva>335&&zleva<400&&shora>235&&shora<315&&xrychlost==3){
+     xrychlost = -3;
+    }
+    if(zleva>350&&zleva<415&&shora>235&&shora<315&&xrychlost==-3){
+     xrychlost = 3;
+    }
+    if(zleva>335&&zleva<415&&shora>235&&shora<300&&yrychlost==3){
+     yrychlost = -3;
+    }
+    if(zleva>335&&zleva<415&&shora>250&&shora<315&&yrychlost==-3){
+     yrychlost = 3;
+    }
    }
    
    function stisknutaKlavesa(event){
@@ -73,7 +94,7 @@
     }
    }
    
-   setInterval(posun,25);
+   setInterval(posun,10);
    
    window.addEventListener('keydown',stisknutaKlavesa);
   </script>
