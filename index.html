@@ -3,10 +3,37 @@
  <head>
   <meta charset=utf-8 />
   <title>Blbost^n</title>
+  <style>
+   #canvas{
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background: gray;
+   }
+   #kosticka{
+    width: 50px;
+    height: 50px;
+    background: red;
+    position: absolute;
+    left: 0;
+    top: 0;
+   }
+  </style>
  </head>
  <body>
-  <p>It works.</p>
   <p>Tato stránka je ve vývinu, takže musí hodně jíst.</p>
   <p><img src="../../Desktop/apple%20animated.gif" alt="apple animated.gif, 4.6kB" title="Apple animated" border="0" height="210" width="246"></p>
+  <div id=canvas>
+   <div id=kosticka></div>
+  </div>
+  <script>
+   var element = document.getElementById('kosticka');
+   var zleva = 0;
+   function posun(){
+    zleva = zleva+2;
+    element.style.left = zleva+"px";
+   }
+   setInterval(posun,100);
+  </script>
  </body>
 </html>
