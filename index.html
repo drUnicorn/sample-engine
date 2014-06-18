@@ -6,6 +6,7 @@
   <style>
    #canvas{
     position: relative;
+    overflow: hidden;
     width: 800px;
     height: 600px;
     background: gray;
@@ -29,11 +30,22 @@
   <script>
    var element = document.getElementById('kosticka');
    var zleva = 0;
+   var xrychlost = 3;
    function posun(){
-    zleva = zleva+2;
+    zleva = zleva+xrychlost;
     element.style.left = zleva+"px";
    }
-   setInterval(posun,100);
+   function stisknutaKlavesa(event){
+    if(event.keyCode==37){
+     xrychlost = -3;
+    }
+    if(event.keyCode==39){
+     xrychlost = 3;
+    }
+   }
+   setInterval(posun,25);
+   
+   window.addEventListener('keydown',stisknutaKlavesa);
   </script>
  </body>
 </html>
