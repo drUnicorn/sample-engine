@@ -30,19 +30,49 @@
   <script>
    var element = document.getElementById('kosticka');
    var zleva = 0;
+   var shora = 0;
    var xrychlost = 3;
+   var yrychlost = 0
+   
    function posun(){
     zleva = zleva+xrychlost;
+    shora = shora+yrychlost
     element.style.left = zleva+"px";
+    element.style.top = shora+"px";
+   
+    if(zleva<0){
+     xrychlost = 3;
+    }
+    if(zleva>750){
+     xrychlost = -3;
+    }
+    if(shora<0){
+     yrychlost = 3;
+    }
+    if(shora>550){
+     yrychlost = -3;
+    }
    }
+   
    function stisknutaKlavesa(event){
     if(event.keyCode==37){
      xrychlost = -3;
+     yrychlost = 0;
     }
     if(event.keyCode==39){
      xrychlost = 3;
+     yrychlost = 0;
+    }
+    if(event.keyCode==38){
+     xrychlost = 0;
+     yrychlost = -3;
+    }
+    if(event.keyCode==40){
+     xrychlost = 0;
+     yrychlost = 3;
     }
    }
+   
    setInterval(posun,25);
    
    window.addEventListener('keydown',stisknutaKlavesa);
